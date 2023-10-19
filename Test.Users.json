@@ -1,0 +1,251 @@
+[{
+  "_id": {
+    "$oid": "6529a2aa5f3c584384d447d6"
+  },
+  "first_name": "Ivan",
+  "last_name": "Petrov",
+  "username": "ivan_petrov",
+  "password": "secret_password_1",
+  "email": "ivan.petrov@example.com",
+  "interests": [
+    "sports",
+    "music",
+    "travel"
+  ],
+  "followers": [
+    {
+      "$oid": "6529a2aa5f3c584384d447d9"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6529a2aa5f3c584384d447d7"
+  },
+  "first_name": "Maria",
+  "last_name": "Ivanova",
+  "username": "maria_ivanova",
+  "password": "secret_password_2",
+  "email": "maria.ivanova@example.com",
+  "interests": [
+    "movies",
+    "reading",
+    "cooking"
+  ],
+  "followers": [
+    {
+      "$oid": "6529a2aa5f3c584384d447d9"
+    },
+    {
+      "$oid": "6529a2aa5f3c584384d447d6"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6529a2aa5f3c584384d447d8"
+  },
+  "first_name": "Alexander",
+  "last_name": "Sidorov",
+  "username": "alexander_sidorov",
+  "password": "secret_password_3",
+  "email": "alexander.sidorov@example.com",
+  "interests": [
+    "technology",
+    "programming",
+    "sports"
+  ],
+  "followers": [
+    {
+      "$oid": "6529a2aa5f3c584384d447d9"
+    },
+    {
+      "$oid": "6529a2aa5f3c584384d447d7"
+    },
+    {
+      "$oid": "6529a2aa5f3c584384d447dd"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6529a2aa5f3c584384d447d9"
+  },
+  "first_name": "Anna",
+  "last_name": "Kovalenko",
+  "username": "anna_kovalenko",
+  "password": "secret_password_4",
+  "email": "anna.kovalenko@example.com",
+  "interests": [
+    "art",
+    "fashion",
+    "travel"
+  ],
+  "followers": [
+    {
+      "$oid": "6529a2aa5f3c584384d447d7"
+    },
+    {
+      "$oid": "6529a2aa5f3c584384d447dd"
+    },
+    {
+      "$oid": "6529a2aa5f3c584384d447df"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6529a2aa5f3c584384d447da"
+  },
+  "first_name": "Maxim",
+  "last_name": "Shevchenko",
+  "username": "maxim_shevchenko",
+  "password": "secret_password_5",
+  "email": "maxim.shevchenko@example.com",
+  "interests": [
+    "sports",
+    "music",
+    "movies"
+  ],
+  "followers": [
+    {
+      "$oid": "6529a2aa5f3c584384d447df"
+    },
+    {
+      "$oid": "6529a2aa5f3c584384d447d7"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6529a2aa5f3c584384d447db"
+  },
+  "first_name": "Julia",
+  "last_name": "Grigorenko",
+  "username": "julia_grigorenko",
+  "password": "secret_password_6",
+  "email": "julia.grigorenko@example.com",
+  "interests": [
+    "fashion",
+    "beauty",
+    "travel"
+  ],
+  "followers": [
+    {
+      "$oid": "6529a2aa5f3c584384d447df"
+    },
+    {
+      "$oid": "6529a2aa5f3c584384d447d7"
+    },
+    {
+      "$oid": "6529a2aa5f3c584384d447d8"
+    },
+    {
+      "$oid": "6529a2aa5f3c584384d447de"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6529a2aa5f3c584384d447dc"
+  },
+  "first_name": "Oleg",
+  "last_name": "Melnik",
+  "username": "oleg_melnik",
+  "password": "secret_password_7",
+  "email": "oleg.melnik@example.com",
+  "interests": [
+    "music",
+    "sports",
+    "gastronomy"
+  ],
+  "followers": [
+    {
+      "$oid": "6529a2aa5f3c584384d447d7"
+    },
+    {
+      "$oid": "6529a2aa5f3c584384d447d8"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6529a2aa5f3c584384d447dd"
+  },
+  "first_name": "Yuri",
+  "last_name": "Bilenkiy",
+  "username": "yuri_bilenkiy",
+  "password": "secret_password_8",
+  "email": "yuri.bilenkiy@example.com",
+  "interests": [
+    "technology",
+    "programming",
+    "sports"
+  ],
+  "followers": [
+    {
+      "$oid": "6529a2aa5f3c584384d447df"
+    },
+    {
+      "$oid": "6529a2aa5f3c584384d447d7"
+    },
+    {
+      "$oid": "6529a2aa5f3c584384d447d8"
+    },
+    {
+      "$oid": "6529a2aa5f3c584384d447de"
+    },
+    {
+      "$oid": "6529a2aa5f3c584384d447db"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6529a2aa5f3c584384d447de"
+  },
+  "first_name": "Tatiana",
+  "last_name": "Dmitrenko",
+  "username": "tatiana_dmitrenko",
+  "password": "secret_password_9",
+  "email": "tatiana.dmitrenko@example.com",
+  "interests": [
+    "art",
+    "movies",
+    "craft beer"
+  ],
+  "followers": [
+    {
+      "$oid": "6529a2aa5f3c584384d447df"
+    },
+    {
+      "$oid": "6529a2aa5f3c584384d447d9"
+    }
+  ]
+},
+{
+  "_id": {
+    "$oid": "6529a2aa5f3c584384d447df"
+  },
+  "first_name": "Andrey",
+  "last_name": "Lytvynenko",
+  "username": "andrey_lytvynenko",
+  "password": "secret_password_10",
+  "email": "andrey.lytvynenko@example.com",
+  "interests": [
+    "travel",
+    "photography",
+    "cooking"
+  ],
+  "followers": [
+    {
+      "$oid": "6529a2aa5f3c584384d447df"
+    },
+    {
+      "$oid": "6529a2aa5f3c584384d447d9"
+    },
+    {
+      "$oid": "6529a2aa5f3c584384d447d8"
+    }
+  ]
+}]
