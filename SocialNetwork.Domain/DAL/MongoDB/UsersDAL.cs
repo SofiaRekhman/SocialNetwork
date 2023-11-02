@@ -1,4 +1,5 @@
-﻿using MongoDB.Bson;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using SocialNetwork.Models;
 using System;
@@ -107,6 +108,20 @@ namespace SocialNetwork.DAL
             var filter = Builders<Users>.Filter.Eq(u => u.Id, documentIdToDelete);
 
             var deleteResult = users.DeleteOne(filter);
+
+        }
+        public static void DeleteFriend(string userId, string targetUsername)
+        {
+            var followArray = users.Find(x => x.Id == userId).Project("{_id:0,followers:1}").FirstOrDefault().First().Value.AsBsonArray;
+            var targetId = users.Find(x => x.Username == targetUsername).Project("{_id:1}").FirstOrDefault().ToString();
+            if (IsFollower(userId, targetId))
+                followArray.Remove(targetId);
+            else
+                return;
+
+            var filter = Builders<Users>.Filter.Eq(x => x.Id, userId);
+            var update = Builders<Users>.Update.Set("followers", followArray.AsObjectId);
+            users.UpdateOne(filter, update);
 
         }
     }

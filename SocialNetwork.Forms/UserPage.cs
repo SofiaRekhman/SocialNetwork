@@ -1,10 +1,10 @@
 ﻿using SocialNetwork.DAL;
+using SocialNetwork.Domain.BLL.Commands;
 using SocialNetwork.Domain.DAL;
 using SocialNetwork.Models;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-
 
 namespace SocialNetwork.Forms
 {
@@ -13,17 +13,17 @@ namespace SocialNetwork.Forms
         public UserPage()
         {
             InitializeComponent();
-            
+
         }
-        
+
         public void FillInUserInformation(string userId)
         {
             var userInfo = UsersDAL.GetUserById(userId);
             var postInfo = PostsDAL.GetUserPostsCount(userId);
 
             textBoxIdUser.Text = userId;
-            tbUsernameProfile.Text = userInfo.Username; 
-            tbFirstNameProfile.Text = userInfo.FirstName;   
+            tbUsernameProfile.Text = userInfo.Username;
+            tbFirstNameProfile.Text = userInfo.FirstName;
             tbLastNameProfile.Text = userInfo.LastName;
             listBoxInterests.Items.AddRange(userInfo.Interests.ToArray());
 
@@ -40,14 +40,11 @@ namespace SocialNetwork.Forms
 
         private void UserPage_Load(object sender, EventArgs e)
         {
-            
             textBoxIdUser.Hide();
             tabPagePosts.Hide();
             tabPageFollowers.Hide();
             tabPageProfile.Show();
-            
         }
-
         private void buttonFollower_Click(object sender, EventArgs e)
         {
             tabPageProfile.Hide();
@@ -55,7 +52,7 @@ namespace SocialNetwork.Forms
             var userId = textBoxIdUser.Text;
             var userFollowers = UsersDAL.GetFollowers(userId).ToArray();
             listBoxFollowers.Items.AddRange(userFollowers);
-           
+
         }
         private void buttonNewFollow_Click(object sender, EventArgs e)
         {
@@ -74,7 +71,7 @@ namespace SocialNetwork.Forms
                     MessageBox.Show($"This person successful added to your followers", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show($"{ex}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -140,7 +137,7 @@ namespace SocialNetwork.Forms
                 PostsDAL.AddComment(postId, newComment);
                 MessageBox.Show($"Comment successful added", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show($"{ex}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -215,6 +212,21 @@ namespace SocialNetwork.Forms
                 MessageBox.Show($"Post successful added", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
+            {
+                MessageBox.Show($"{ex}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void buttonDeleteFriend_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var userId = textBoxIdUser.Text;
+                var friend = textBoxNewFriendFind.Text;
+                var newFriendId = UsersDAL.FindUserProfile(friend);
+                Commands.DeleteFriend(userId, friend);
+                MessageBox.Show($"Friend successful deleteed", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch(Exception ex)
             {
                 MessageBox.Show($"{ex}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
