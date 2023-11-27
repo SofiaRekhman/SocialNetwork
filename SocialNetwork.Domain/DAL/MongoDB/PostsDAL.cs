@@ -67,9 +67,21 @@ namespace SocialNetwork.Domain.DAL
                 Content = content,
                 CreatedTime = DateTime.Now,
                 Comments = comment,
-                Reactions = {}
+                Reactions = { }
             };
             posts.InsertOne(newPost);
+        }
+        public static string AddingPost(string userId, string context)
+        {
+            Posts newPost = new Posts();
+            newPost.Content = context;
+            newPost.CreatedTime = DateTime.Now;
+            newPost.UserIdPost = userId;
+            newPost.Reactions = new List<string>() { };
+            newPost.Comments = new List<string>() { };  
+            var task = posts.InsertOneAsync(newPost);
+            task.Wait();
+            return Convert.ToString(newPost.Id);
         }
         public static void UpdateReaction(string reactionType, string postId)
         {

@@ -34,7 +34,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AWSSDK.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
-      <HintPath>..\packages\AWSSDK.Core.3.7.100.14\lib\net45\AWSSDK.Core.dll</HintPath>
+      <HintPath>..\packages\AWSSDK.Core.3.7.300.8\lib\net45\AWSSDK.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.DynamoDBv2, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
+      <HintPath>..\packages\AWSSDK.DynamoDBv2.3.7.300.8\lib\net45\AWSSDK.DynamoDBv2.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SecurityToken, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
       <HintPath>..\packages\AWSSDK.SecurityToken.3.7.100.14\lib\net45\AWSSDK.SecurityToken.dll</HintPath>
@@ -174,9 +177,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\Commands.cs" />
+    <Compile Include="DAL\DynamoDB\CommentsDAL.cs" />
+    <Compile Include="DAL\DynamoDB\PostsDAL.cs" />
+    <Compile Include="DAL\DynamoDB\ReactionsDAL.cs" />
     <Compile Include="DAL\MongoDB\PostsDAL.cs" />
     <Compile Include="DAL\MongoDB\UsersDAL.cs" />
     <Compile Include="DAL\Neo4j\UsersDAL.cs" />
+    <Compile Include="Models\DynamoDB\Comments.cs" />
+    <Compile Include="Models\DynamoDB\Posts.cs" />
+    <Compile Include="Models\DynamoDB\Reactions.cs" />
     <Compile Include="Models\MongoDB\Posts.cs" />
     <Compile Include="Models\MongoDB\Users.cs" />
     <Compile Include="Models\Neo4j\Followers.cs" />
@@ -190,6 +199,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Analyzer Include="..\packages\AWSSDK.DynamoDBv2.3.7.300.8\analyzers\dotnet\cs\AWSSDK.DynamoDBv2.CodeAnalysis.dll" />
+    <Analyzer Include="..\packages\AWSSDK.DynamoDBv2.3.7.300.8\analyzers\dotnet\cs\SharedAnalysisCode.dll" />
     <Analyzer Include="..\packages\AWSSDK.SecurityToken.3.7.100.14\analyzers\dotnet\cs\AWSSDK.SecurityToken.CodeAnalysis.dll" />
   </ItemGroup>
   <ItemGroup>

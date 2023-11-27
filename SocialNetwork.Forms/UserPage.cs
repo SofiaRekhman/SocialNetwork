@@ -134,7 +134,9 @@ namespace SocialNetwork.Forms
             {
                 var newComment = tbCommentAdd.Text;
                 var postId = tbPostId.Text;
-                PostsDAL.AddComment(postId, newComment);
+                var currentId = textBoxIdUser.Text;
+                //PostsDAL.AddComment(postId, newComment);
+                Commands.AddComment(currentId, postId, newComment, currentId);
                 MessageBox.Show($"Comment successful added", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
@@ -197,6 +199,9 @@ namespace SocialNetwork.Forms
         {
             tabPageProfile.Hide();
             tabPageAddPosts.Show();
+            var content = tbAddPostContent.Text;
+            var currentId = textBoxIdUser.Text;
+            Commands.AddPost(currentId, content);
         }
 
         private void buttonAddConcretePost_Click(object sender, EventArgs e)
@@ -209,6 +214,7 @@ namespace SocialNetwork.Forms
                 string currentComment = tbAddPostComment.Text;
                 comment.Add(currentComment);
                 PostsDAL.AddPost(userId, content, comment);
+                Commands.AddPost(currentId, content);
                 MessageBox.Show($"Post successful added", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
