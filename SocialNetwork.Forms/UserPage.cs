@@ -214,7 +214,7 @@ namespace SocialNetwork.Forms
                 string currentComment = tbAddPostComment.Text;
                 comment.Add(currentComment);
                 PostsDAL.AddPost(userId, content, comment);
-                Commands.AddPost(currentId, content);
+                Commands.AddPost(userId, content);
                 MessageBox.Show($"Post successful added", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)

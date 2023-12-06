@@ -1,4 +1,5 @@
 ﻿using SocialNetwork.DAL;
+using SocialNetwork.Domain.BLL;
 using SocialNetwork.Models;
 using System;
 using System.Collections.Generic;
@@ -106,9 +107,9 @@ namespace SocialNetwork.Forms
         {
             var userName = tbUsernameDelete.Text;
             var password = tbPasswordDelete.Text;
-
+            var userId = ReturnUserId();
             UsersDAL.DeleteUser(userName, password);
-
+            SocialNetwork.Domain.BLL.UserService.RemoveUser(userId);
             MessageBox.Show($"Account deleted succesful", "Succes", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
